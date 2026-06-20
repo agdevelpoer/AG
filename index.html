@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaditya Properties | Lucknow SCR - Buy / Sales / Rent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: { primary: '#1e3a8a', secondary: '#facc15' }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .faq-answer { display: none; }
+        .faq-answer.open { display: block; }
+        
+        /* Custom Animated Underline for Navbar */
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            padding-bottom: 4px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: #facc15;
+            transition: width 0.3s ease-in-out;
+            border-radius: 2px;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+
+    <div class="bg-primary text-white text-xs md:text-sm py-2 px-4 text-center border-b border-blue-800 fixed w-full top-0 z-50">
+        <span class="font-medium">Simplify your Lifestyle by saving time as Our Website has all types of Property & Products to Advertise for Buy / Sales / Rent.</span>
+        <a href="tel:8004444747" class="ml-2 text-secondary font-bold hover:underline"><i class="fa-solid fa-phone mr-1"></i> Call Us - 8004444747</a>
+    </div>
+
+    <nav class="bg-white shadow-md fixed w-full z-40 top-9 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-building-user text-3xl text-primary mr-2"></i>
+                    <span class="font-bold text-xl xl:text-2xl text-primary tracking-tight whitespace-nowrap">Aaditya <span class="text-secondary">Properties</span></span>
+                </div>
+                <div class="hidden lg:flex space-x-3 xl:space-x-5 items-center">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-primary font-semibold transition whitespace-nowrap text-sm xl:text-base">Home</a>
+                    <a href="#property-up" class="nav-link text-gray-700 hover:text-primary font-semibold transition whitespace-nowrap text-sm xl:text-base">Property in UP</a>
+                    <a href="#lucknow-scr" class="nav-link text-gray-700 hover:text-primary font-semibold transition whitespace-nowrap text-sm xl:text-base">Lucknow SCR</a>
+                    <a href="#ads-with-us" class="nav-link text-gray-700 hover:text-primary font-semibold transition whitespace-nowrap text-sm xl:text-base">Ads With Us</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-primary font-semibold transition whitespace-nowrap text-sm xl:text-base">About Us</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-primary font-semibold transition whitespace-nowrap text-sm xl:text-base">Contact Us</a>
+                    <a href="#career" class="nav-link text-gray-700 hover:text-primary font-semibold transition whitespace-nowrap text-sm xl:text-base">Career</a>
+                    <a href="#terms" class="nav-link text-gray-700 hover:text-primary font-semibold transition whitespace-nowrap text-sm xl:text-base">Terms & Conditions</a>
+                    <a href="#contact" class="bg-primary text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-blue-900 transition shadow-lg whitespace-nowrap border-2 border-transparent hover:border-secondary transform hover:-translate-y-1">Get A Quote</a>
+                </div>
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-primary hover:text-secondary focus:outline-none text-3xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t shadow-inner max-h-[80vh] overflow-y-auto">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#home" class="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-primary font-medium rounded-md">Home</a>
+                <a href="#property-up" class="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-primary font-medium rounded-md">Property in UP</a>
+                <a href="#lucknow-scr" class="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-primary font-medium rounded-md">Lucknow SCR</a>
+                <a href="#ads-with-us" class="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-primary font-medium rounded-md">Ads With Us</a>
+                <a href="#about" class="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-primary font-medium rounded-md">About Us</a>
+                <a href="#contact" class="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-primary font-medium rounded-md">Contact Us</a>
+                <a href="#career" class="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-primary font-medium rounded-md">Career</a>
+                <a href="#terms" class="block px-3 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-primary font-medium rounded-md">Terms & Conditions</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-bg h-screen flex items-center pt-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left text-white">
+            <h2 class="text-secondary font-semibold text-xl mb-4 tracking-widest uppercase animate-pulse">Aaditya Properties Lucknow SCR</h2>
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 drop-shadow-lg">Simplify Your Lifestyle <br>By <span class="text-secondary">Saving Precious Time</span></h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl drop-shadow-md">Advertise your property & products & business profile services on our website in front of thousands of customers across India and live chat with customers directly.</p>
+            <div class="space-x-4">
+                <a href="#ads-with-us" class="bg-secondary text-primary px-8 py-3.5 rounded-full font-bold text-lg hover:bg-yellow-400 transition shadow-2xl inline-block transform hover:-translate-y-1">Advertise with Us</a>
+                <a href="tel:8004444747" class="bg-white/10 text-white border-2 border-white/40 px-8 py-3.5 rounded-full font-bold text-lg hover:bg-white/20 transition inline-block backdrop-blur-sm"><i class="fa-solid fa-phone mr-2"></i>8004444747</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-secondary rounded-lg transform translate-x-4 translate-y-4"></div>
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About Us" class="relative rounded-lg shadow-2xl z-10 w-full h-auto">
+                </div>
+                <div>
+                    <h4 class="text-primary font-bold uppercase tracking-wider mb-2">Property Owner's First Choice</h4>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Advertising Solution For Owners To Sell And Rent</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">As an owner you can choose the best option for property listing and get potential buyers for your properties <strong>"directly"</strong> in your city. Aaditya Properties broadens the knowledge of consumers to find and buy the required structural systems and assets without much wastage of time.</p>
+                    
+                    <div class="bg-blue-50 border-l-4 border-primary p-4 rounded-r-xl mb-6">
+                        <p class="text-primary font-bold"><i class="fa-solid fa-star mr-2"></i>Additional Benefit:</p>
+                        <p class="text-gray-700 text-sm mt-1">Enjoy Unlimited Calls & Direct interactions of Buyers with Sellers with zero intermediary friction.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center transform hover:translate-x-2 transition duration-300">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-primary"><i class="fa-solid fa-bullhorn"></i></div>
+                            <div class="ml-4"><h5 class="text-base font-bold text-gray-900">Live Customer Chat Systems</h5></div>
+                        </div>
+                        <div class="flex items-center transform hover:translate-x-2 transition duration-300">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-primary"><i class="fa-solid fa-bolt"></i></div>
+                            <div class="ml-4"><h5 class="text-base font-bold text-gray-900">Speeds Up Asset & Land Distribution</h5></div>
+                        </div>
+                        <div class="flex items-center transform hover:translate-x-2 transition duration-300">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-primary"><i class="fa-solid fa-chart-line"></i></div>
+                            <div class="ml-4"><h5 class="text-base font-bold text-gray-900">Reduces Long-term Selling Costs</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ads-with-us" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h4 class="text-primary font-bold uppercase tracking-wider mb-2">Listing Plans</h4>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Fill Advertisement Form To Advertise</h2>
+                <p class="text-gray-600 text-lg">Provide your structural and business details to contact us now: <span class="text-primary font-bold">05223145030</span> / <span class="text-primary font-bold">08004444747</span></p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 transition group hover:-translate-y-1 duration-300">
+                    <div class="text-3xl text-primary mb-3"><i class="fa-solid fa-box"></i></div>
+                    <span class="font-bold text-gray-800 group-hover:text-primary">For Products</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 transition group hover:-translate-y-1 duration-300">
+                    <div class="text-3xl text-primary mb-3"><i class="fa-solid fa-user-tie"></i></div>
+                    <span class="font-bold text-gray-800 group-hover:text-primary">For Owners</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 transition group hover:-translate-y-1 duration-300">
+                    <div class="text-3xl text-primary mb-3"><i class="fa-solid fa-trowel-bricks"></i></div>
+                    <span class="font-bold text-gray-800 group-hover:text-primary">For Builders</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 transition group hover:-translate-y-1 duration-300">
+                    <div class="text-3xl text-primary mb-3"><i class="fa-solid fa-key"></i></div>
+                    <span class="font-bold text-gray-800 group-hover:text-primary">For Renting</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 transition group hover:-translate-y-1 duration-300">
+                    <div class="text-3xl text-primary mb-3"><i class="fa-solid fa-briefcase"></i></div>
+                    <span class="font-bold text-gray-800 group-hover:text-primary">Business Profiles</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 transition group hover:-translate-y-1 duration-300">
+                    <div class="text-3xl text-primary mb-3"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <span class="font-bold text-gray-800 group-hover:text-primary">Skilled Workers</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 transition group hover:-translate-y-1 duration-300">
+                    <div class="text-3xl text-primary mb-3"><i class="fa-solid fa-shop"></i></div>
+                    <span class="font-bold text-gray-800 group-hover:text-primary">Shopkeepers</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 transition group hover:-translate-y-1 duration-300">
+                    <div class="text-3xl text-primary mb-3"><i class="fa-solid fa-handshake-angle"></i></div>
+                    <span class="font-bold text-gray-800 group-hover:text-primary">Estate Agents</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="property-up" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h4 class="text-primary font-bold uppercase tracking-wider mb-2">Core Sectors</h4>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Residential & Commercial Properties</h2>
+                <p class="text-gray-600">Find reliable property systems from trusted sellers, developers, and builders in your city.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:shadow-xl transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary text-white p-3 rounded-xl mr-4 text-2xl"><i class="fa-solid fa-鋪"></i><i class="fa-solid fa-house-chimney"></i></div>
+                        <h3 class="text-2xl font-bold text-gray-900">Residential Properties</h3>
+                    </div>
+                    <ul class="grid grid-cols-2 gap-3 text-gray-700 font-medium">
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Plots</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Flats</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Home & Villa</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Builder Floor</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Farm House</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Penthouse</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Studio Apartments</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:shadow-xl transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary text-white p-3 rounded-xl mr-4 text-2xl"><i class="fa-solid fa-building"></i></div>
+                        <h3 class="text-2xl font-bold text-gray-900">Commercial Properties</h3>
+                    </div>
+                    <ul class="grid grid-cols-2 gap-3 text-gray-700 font-medium">
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Office Space</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Showroom</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Shop</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Warehouse</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Industrial Land</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Commercial Lands</li>
+                        <li><i class="fa-solid fa-circle-check text-secondary mr-2"></i>Business Centre Shop</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lucknow-scr" class="py-16 bg-gray-100 border-t border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-center font-bold text-gray-500 uppercase tracking-widest text-sm mb-8">Active Regions within Lucknow SCR Coverage</h3>
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4 text-center">
+                <div class="bg-white py-3 px-4 rounded-xl shadow-sm font-semibold text-primary">Lucknow</div>
+                <div class="bg-white py-3 px-4 rounded-xl shadow-sm font-semibold text-primary">Barabanki</div>
+                <div class="bg-white py-3 px-4 rounded-xl shadow-sm font-semibold text-primary">Hardoi</div>
+                <div class="bg-white py-3 px-4 rounded-xl shadow-sm font-semibold text-primary">Raebareli</div>
+                <div class="bg-white py-3 px-4 rounded-xl shadow-sm font-semibold text-primary">Sitapur</div>
+                <div class="bg-white py-3 px-4 rounded-xl shadow-sm font-semibold text-primary">Unnao</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats-section" class="py-20 bg-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute transform rotate-45 bg-white w-96 h-96 -top-20 -left-20 rounded-3xl"></div>
+            <div class="absolute transform rotate-45 bg-white w-96 h-96 -bottom-20 -right-20 rounded-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 lg:divide-x divide-blue-700">
+                <div class="p-6 transform hover:scale-110 transition duration-300 cursor-default">
+                    <h3 class="text-5xl font-extrabold text-secondary mb-3 flex justify-center items-center">
+                        <span class="stat-number" data-target="16">0</span>+
+                    </h3>
+                    <p class="text-lg uppercase tracking-wider font-semibold text-blue-100">Years of Trust (Since 2010)</p>
+                </div>
+                <div class="p-6 transform hover:scale-110 transition duration-300 cursor-default">
+                    <h3 class="text-5xl font-extrabold text-secondary mb-3 flex justify-center items-center">
+                        <span class="stat-number" data-target="1000">0</span>+
+                    </h3>
+                    <p class="text-lg uppercase tracking-wider font-semibold text-blue-100">Verified Ads Running</p>
+                </div>
+                <div class="p-6 transform hover:scale-110 transition duration-300 cursor-default">
+                    <h3 class="text-5xl font-extrabold text-secondary mb-3 flex justify-center items-center">
+                        <span class="stat-number" data-target="5000">0</span>+
+                    </h3>
+                    <p class="text-lg uppercase tracking-wider font-semibold text-blue-100">Customers Across India</p>
+                </div>
+                <div class="p-6 transform hover:scale-110 transition duration-300 cursor-default">
+                    <h3 class="text-5xl font-extrabold text-secondary mb-3 flex justify-center items-center">
+                        <span class="stat-number" data-target="100">0</span>%
+                    </h3>
+                    <p class="text-lg uppercase tracking-wider font-semibold text-blue-100">Direct Interaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="career" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100 shadow-sm">
+                <h4 class="text-primary font-bold uppercase tracking-wider mb-2">Join Our Network</h4>
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Explore Career Paths & Job Listing Operations</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-6">Want to work with Lucknow's leading advertising engine for real estate properties? Fill out our registration form below or drop your details directly to connect with our HR operations team.</p>
+                <a href="#contact" class="bg-primary text-white font-bold px-6 py-3 rounded-xl hover:bg-blue-900 transition shadow-md inline-block">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="terms" class="py-12 bg-gray-50 border-t border-b">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-xs text-gray-500 space-y-3 leading-relaxed">
+            <p><strong>RERA Disclaimer:</strong> The displayed RERA status is as posted by the User seller / Agent / Builder. It may or may not be RERA certified. Before approaching the User, you are requested to check it carefully and verify it independently.</p>
+            <p><strong>Intermediary Note:</strong> Being an Intermediary, the role of AADITYAPROPERTIES is limited to providing an online platform that is acting in the capacity of a search engine or advertising agency only, for the Users to showcase their property related information and interact for sale and buying purposes. The Users displaying their properties / projects for sale are solely responsible for the posted contents including the RERA compliance.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-primary rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row">
+                <div class="p-12 lg:w-1/2 text-white flex flex-col justify-center relative">
+                    <div class="absolute top-0 right-0 opacity-10">
+                        <i class="fa-solid fa-city text-[200px] transform translate-x-10 -translate-y-10"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <h2 class="text-4xl font-bold mb-6 leading-tight">Connect with Us Instantly!</h2>
+                        <p class="mb-10 text-blue-100 text-lg">Provide your structural data, property attributes, or product catalogs to place targeted ads in front of buyers directly across India.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center group">
+                                <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center mr-4 group-hover:bg-secondary transition duration-300">
+                                    <i class="fa-solid fa-phone text-xl text-secondary group-hover:text-primary transition"></i>
+                                </div>
+                                <span class="text-2xl font-semibold">08004444747</span>
+                            </div>
+                            <div class="flex items-center group">
+                                <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center mr-4 group-hover:bg-secondary transition duration-300">
+                                    <i class="fa-solid fa-phone text-xl text-secondary group-hover:text-primary transition"></i>
+                                </div>
+                                <span class="text-2xl font-semibold">05223145030</span>
+                            </div>
+                            <div class="flex items-center group">
+                                <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center mr-4 group-hover:bg-secondary transition duration-300">
+                                    <i class="fa-solid fa-envelope text-xl text-secondary group-hover:text-primary transition"></i>
+                                </div>
+                                <span class="text-lg">info@aadityaproperties.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-12 lg:w-1/2">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-8">Fill Advertisement Details</h3>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Your Name</label>
+                            <input type="text" class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Enter your name" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Your Email</label>
+                            <input type="email" class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Enter your email" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Your Phone No</label>
+                            <input type="tel" class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Enter your phone number" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Advertisement Details / Enquiries</label>
+                            <textarea rows="4" class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition resize-none" placeholder="Provide property configurations, products specification, or budget metrics..." required></textarea>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="terms_check" class="h-5 w-5 text-primary focus:ring-primary border-gray-300 rounded cursor-pointer" required>
+                            <label for="terms_check" class="ml-3 block text-sm text-gray-600 cursor-pointer font-medium">I accept the terms of use guidelines.</label>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white font-bold text-lg py-4 px-4 rounded-xl hover:bg-blue-900 transition transform hover:-translate-y-1 shadow-lg border-2 border-transparent hover:border-secondary">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-building-user text-4xl text-secondary mr-3"></i>
+                        <span class="font-bold text-3xl tracking-tight">Aaditya <span class="text-secondary">Properties</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-8 max-w-md text-base leading-relaxed">The trusted intermediary web engine across Lucknow SCR for advertising layout structures, assets, residential properties, plots, and commercial products.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b-2 border-secondary pb-2 inline-block">Navigation</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm font-medium">
+                        <li><a href="#home" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right mr-2 text-secondary text-xs"></i>Home</a></li>
+                        <li><a href="#property-up" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right mr-2 text-secondary text-xs"></i>Property in UP</a></li>
+                        <li><a href="#lucknow-scr" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right mr-2 text-secondary text-xs"></i>Lucknow SCR</a></li>
+                        <li><a href="#ads-with-us" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right mr-2 text-secondary text-xs"></i>Ads With Us</a></li>
+                        <li><a href="#about" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right mr-2 text-secondary text-xs"></i>About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b-2 border-secondary pb-2 inline-block">Support Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm font-medium">
+                        <li><a href="#contact" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right mr-2 text-secondary text-xs"></i>Contact Us</a></li>
+                        <li><a href="#career" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right mr-2 text-secondary text-xs"></i>Career</a></li>
+                        <li><a href="#terms" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right mr-2 text-secondary text-xs"></i>Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>Copyright &copy; 2010-2026 Aaditya Properties. All rights reserved. All given rates are excluding of GST as per rules goods and service's tax.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // 2. Number Counting Animation Logic
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let animated = false;
+
+        const animateStats = () => {
+            statNumbers.forEach(stat => {
+                const target = +stat.getAttribute('data-target');
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if(current < target) {
+                        stat.innerText = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        stat.innerText = target;
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        const statsSection = document.getElementById('stats-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting && !animated) {
+                    animateStats();
+                    animated = true;
+                }
+            });
+        }, { threshold: 0.4 });
+
+        if(statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+
+</body>
+</html>
